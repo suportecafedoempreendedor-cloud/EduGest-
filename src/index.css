@@ -1,0 +1,182 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #012041;
+  --primary-action: #015FC4;
+  --primary-action-hover: #014FA5;
+  --primary-bright: #0263CB;
+  --text-secondary: #41515D;
+  --background: #FFFFFF;
+  --surface-ground: #F4F6F9;
+  --border-subtle: #E2E8F0;
+
+  /* Cores de Estado Funcional (Permitidas apenas para feedback e estados) */
+  --status-success: #10B981;
+  --status-success-bg: #ECFDF5;
+  --status-warning: #F59E0B;
+  --status-warning-bg: #FFFBEB;
+  --status-error: #EF4444;
+  --status-error-bg: #FEF2F2;
+
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Typography Hierarchy Classes */
+.text-h1 {
+  font-size: 1.875rem; /* 30px */
+  line-height: 2.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.025em;
+}
+
+.text-h2 {
+  font-size: 1.5rem; /* 24px */
+  line-height: 2rem;
+  font-weight: 600;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+}
+
+.text-h3 {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.75rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.text-body {
+  font-size: 0.9375rem; /* 15px */
+  line-height: 1.5rem;
+  color: var(--primary);
+}
+
+.text-caption {
+  font-size: 0.8125rem; /* 13px */
+  line-height: 1.25rem;
+  color: var(--text-secondary);
+}
+
+/* Design System Button Classes */
+.btn-primary {
+  background-color: var(--primary-action);
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.15s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+.btn-primary:hover {
+  background-color: var(--primary-action-hover);
+}
+
+.btn-secondary {
+  background-color: #FFFFFF;
+  color: var(--primary);
+  border: 1px solid var(--primary-action);
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.15s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+.btn-secondary:hover {
+  background-color: #F8FAFC;
+}
+
+/* Card Design System */
+.card-edugest {
+  background-color: var(--background);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgba(1, 32, 65, 0.05);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Print Optimization for Official PDF Reports */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #012041 !important;
+    font-size: 11pt;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  @page {
+    margin: 10mm 12mm;
+    size: A4 portrait;
+  }
+
+  /* Isolate official printable reports and hide background elements */
+  body * {
+    visibility: hidden;
+  }
+
+  #official-dashboard-report-print,
+  #official-dashboard-report-print *,
+  #crm-admissions-report-print,
+  #crm-admissions-report-print *,
+  #hr-printable-area,
+  #hr-printable-area *,
+  .hr-printable-document,
+  .hr-printable-document * {
+    visibility: visible;
+  }
+
+  #official-dashboard-report-print,
+  #crm-admissions-report-print,
+  #hr-printable-area,
+  .hr-printable-document {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    max-height: none !important;
+    overflow: visible !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Hide navigation, sidebar, fixed overlays and backdrops during print */
+  nav,
+  aside,
+  header,
+  .no-print,
+  button:not(.allow-print) {
+    display: none !important;
+  }
+
+  .page-break-inside-avoid {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}

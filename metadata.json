@@ -1,0 +1,6 @@
+{
+  "name": "EduGest Angola",
+  "description": "Sistema Integrado de Gestão Escolar e Académica de Angola com Identidade Visual Oficial e Design System",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
